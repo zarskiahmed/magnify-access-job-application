@@ -12,7 +12,7 @@ The Submission Form is a Ruby on Rails application that allows employees to subm
 Follow these instructions to set up and run the Submission Form application locally.
 
 ## Prerequisites
-* Ruby Version: Make sure you have Ruby installed on your system (version 3.0.2) **ruby 3.0.2p107 (2021-07-07 revision 0db68f0233) [x86_64-linux-gnu]**
+* Ruby Version: Make sure you have Ruby installed on your system (version 3.0.2) -- **ruby 3.0.2p107 (2021-07-07 revision 0db68f0233) [x86_64-linux-gnu]**
 * System dependencies:
 ``` 
 source 'https://rubygems.org'
