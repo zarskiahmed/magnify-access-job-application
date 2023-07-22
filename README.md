@@ -12,8 +12,8 @@ The Submission Form is a Ruby on Rails application that allows employees to subm
 Follow these instructions to set up and run the Submission Form application locally.
 
 ## Prerequisites
-* Ruby Version: Make sure you have Ruby installed on your system (version 3.0.2) -- **ruby 3.0.2p107 (2021-07-07 revision 0db68f0233) [x86_64-linux-gnu]**
-* System dependencies:
+* ### Ruby Version: Make sure you have Ruby installed on your system (version 3.0.2) -- **ruby 3.0.2p107 (2021-07-07 revision 0db68f0233) [x86_64-linux-gnu]**
+* ### System Dependencies:
 ``` 
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
@@ -73,11 +73,11 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 ```
 
-* Database Creation: ```rails db:create```
+* ### Database Creation: ```rails db:create```
 
-* Database initialization: **Default SQLite3**
+* ### Database Initialization: **Default SQLite3**
 
-* Deployment instructions: ```rails s```
+* ### Deployment Instructions: ```rails s```
 
 ## Installation
 1. Clone the repository to your local machine:
