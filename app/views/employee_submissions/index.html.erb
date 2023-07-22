@@ -1,0 +1,77 @@
+<!-- app/views/employee_submissions/index.html.erb -->
+
+<h1>Employee Submissions Lookup</h1>
+
+<%= form_with(url: employee_submissions_path, method: :get, local: false) do |form| %>
+  <h2>Filter Submissions</h2>
+  <div class="field">
+    <%= form.label :name, "Name:" %>
+    <%= form.text_field :name, value: params[:name] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :employee_id, "Employee ID:" %>
+    <%= form.text_field :employee_id, value: params[:employee_id] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :department %>
+    <%= form.text_field :department, value: params[:department] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :employment_status, "Employment Status:" %>
+    <%= form.select :employment_status, ["", "Full-time", "Part-time", "Contractor", "Intern", "Laid-Off", "Retired", "Employed"], selected: params[:employment_status] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, value: params[:email] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :accommodation_requests %>
+    <%= form.text_field :accommodation_requests, value: params[:accommodation_requests] %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Filter" %>
+  </div>
+<% end %>
+
+<% if @submissions.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Employee ID</th>
+        <th>Department</th>
+        <th>Employment Status</th>
+        <th>Email</th>
+        <th>Accommodation Requests</th>
+        <th>File Upload</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @submissions.each do |submission| %>
+        <tr>
+          <td><%= submission.name %></td>
+          <td><%= submission.employee_id %></td>
+          <td><%= submission.department %></td>
+          <td><%= submission.employment_status %></td>
+          <td><%= submission.email %></td>
+          <td><%= submission.accommodation_requests %></td>
+          <td>
+            <% if submission.file_upload.attached? %>
+              <%= link_to submission.file_upload.filename, url_for(submission.file_upload) %>
+            <% else %>
+              No file attached
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No submissions found.</p>
+<% end %>

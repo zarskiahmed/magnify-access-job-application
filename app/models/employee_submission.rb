@@ -21,6 +21,13 @@ class EmployeeSubmission < ApplicationRecord
         end
     end
 
+    scope :by_name, -> (name) { where("name LIKE ?", "%#{name}%") if name.present? }
+    scope :by_employee_id, -> (employee_id) { where("employee_id LIKE ?", "%#{employee_id}%") if employee_id.present? }
+    scope :by_department, -> (department) { where("department LIKE ?", "%#{department}%") if department.present? }
+    scope :by_employment_status, -> (employment_status) { where(employment_status: employment_status) if employment_status.present? }
+    scope :by_email, -> (email) { where("email LIKE ?", "%#{email}%") if email.present? }
+    scope :by_accommodation_requests, -> (accommodation_requests) { where("accommodation_requests LIKE ?", "%#{accommodation_requests}%") if accommodation_requests.present? }
+
     submissions = EmployeeSubmission.all
 
     submissions.each do |submission|
