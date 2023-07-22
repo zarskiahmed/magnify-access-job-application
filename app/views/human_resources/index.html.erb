@@ -1,0 +1,42 @@
+<h1>Employee Submissions</h1>
+
+<%= form_with(url: human_resources_path, method: :get) do |form| %>
+  <%= form.label :name_contains %>
+  <%= form.text_field :name_contains %>
+
+  <%= form.label :department_contains %>
+  <%= form.text_field :department_contains %>
+
+  <%= form.label :employment_status_contains %>
+  <%= form.text_field :employment_status_contains %>
+
+  <%= form.label :email_contains %>
+  <%= form.text_field :email_contains %>
+
+  <%= form.submit "Filter" %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>ID</th>
+      <th>Department</th>
+      <th>Employment Status</th>
+      <th>Email</th>
+      <th>Accommodation Requests</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @submissions.each do |submission| %>
+      <tr>
+        <td><%= submission.name %></td>
+        <td><%= submission.employee_id %></td>
+        <td><%= submission.department %></td>
+        <td><%= submission.employment_status %></td>
+        <td><%= submission.email %></td>
+        <td><%= submission.accommodation_requests %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

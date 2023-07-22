@@ -1,0 +1,45 @@
+<%= form_with(model: @employee_submission, url: employee_submissions_path, local: true) do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %> 
+    <br>
+  
+    <%= form.label :employee_id %>
+    <%= form.text_field :employee_id %>
+    <br>
+  
+    <%= form.label :department %>
+    <%= form.text_field :department %>
+    <br>
+  
+    <%= form.label :employment_status %>
+    <%= form.text_field :employment_status %>
+    <br>
+  
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+    <br>
+  
+    <%= form.label :accommodation_requests %>
+    <%= form.text_area :accommodation_requests %>
+    <br>
+  
+    <%= form.label :file_upload %>
+    <%= form.file_field :file_upload %>
+    <br>
+
+  <!--- Display validation errors --->
+  <% if @employee_submission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employee_submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
+      <ul>
+        <% @employee_submission.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+    <%= form.submit %>
+
+    
+  <% end %>
